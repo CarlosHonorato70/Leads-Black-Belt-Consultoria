@@ -286,65 +286,6 @@
       );
 
       function App() {
-        const [formData, setFormData] = useState({
-          nome: '',
-          email: '',
-          empresa: '',
-          cargo: '',
-          telefone: ''
-        });
-
-        const handleInputChange = (e) => {
-          setFormData({
-            ...formData,
-            [e.target.name]: e.target.value
-          });
-        };
-
-        const handleSubmit = async (e) => {
-          e.preventDefault();
-
-          // Insira seu endpoint do FormsPree aqui
-          const formUrl = "https://formspree.io/f/xyzdzkjy";
-
-          try {
-            const response = await fetch(formUrl, {
-              method: 'POST',
-              body: JSON.stringify(formData),
-              headers: {
-                'Accept': 'application/json'
-              }
-            });
-
-            if (response.ok) {
-              alert('Obrigado! Seu e-book será enviado para o email informado.');
-              console.log('Dados enviados com sucesso para o FormsPree!');
-              // Limpar o formulário após o envio
-              setFormData({
-                nome: '',
-                email: '',
-                empresa: '',
-                cargo: '',
-                telefone: ''
-              });
-            } else {
-              // Tratar erros, se houver
-              const data = await response.json();
-              alert(`Ocorreu um erro: ${data.error}`);
-            }
-          } catch (error) {
-            console.error('Erro ao enviar o formulário:', error);
-            alert('Ocorreu um erro ao enviar. Por favor, tente novamente.');
-          }
-        };
-
-        const scrollToForm = () => {
-          const form = document.querySelector('form');
-          if (form) {
-            form.scrollIntoView({ behavior: 'smooth' });
-          }
-        };
-
         return (
           <div className="min-h-screen bg-gradient-to-br from-blue-50 to-green-50">
             {/* Header */}
@@ -356,10 +297,10 @@
                   </div>
                   <div className="hidden md:flex items-center space-x-6 text-sm text-gray-600">
                     <span className="flex items-center">
-                      <Phone className="w-4 h-4 mr-1" /> (61) 98178-9911
+                      <Phone className="w-4 h-4 mr-1" /> (11) 99999-9999
                     </span>
                     <span className="flex items-center">
-                      <Mail className="w-4 h-4 mr-1" /> blackbeltconsultoria01@gmail.com
+                      <Mail className="w-4 h-4 mr-1" /> contato@blackbelt.com.br
                     </span>
                   </div>
                 </div>
@@ -411,45 +352,35 @@
                           </CardTitle>
                         </CardHeader>
                         <CardContent>
-                          <form onSubmit={handleSubmit} className="space-y-4">
+                          <form action="https://formspree.io/f/xyzdzkjy" method="POST" className="space-y-4">
                             <Input
                               type="text"
                               name="nome"
                               placeholder="Seu nome completo"
-                              value={formData.nome}
-                              onChange={handleInputChange}
                               required
                             />
                             <Input
                               type="email"
                               name="email"
                               placeholder="Seu melhor e-mail"
-                              value={formData.email}
-                              onChange={handleInputChange}
                               required
                             />
                             <Input
                               type="text"
                               name="empresa"
                               placeholder="Nome da empresa"
-                              value={formData.empresa}
-                              onChange={handleInputChange}
                               required
                             />
                             <Input
                               type="text"
                               name="cargo"
                               placeholder="Seu cargo"
-                              value={formData.cargo}
-                              onChange={handleInputChange}
                               required
                             />
                             <Input
                               type="tel"
                               name="telefone"
                               placeholder="Telefone (opcional)"
-                              value={formData.telefone}
-                              onChange={handleInputChange}
                             />
                             <Button type="submit" className="w-full py-3">
                               BAIXAR E-BOOK GRATUITO
@@ -490,13 +421,11 @@
                       </CardDescription>
                     </CardHeader>
                     <CardContent>
-                      <form onSubmit={handleSubmit} className="grid md:grid-cols-2 gap-6">
+                      <form action="https://formspree.io/f/your_unique_form_id" method="POST" className="grid md:grid-cols-2 gap-6">
                         <Input
                           type="text"
                           name="nome"
                           placeholder="Seu nome completo"
-                          value={formData.nome}
-                          onChange={handleInputChange}
                           required
                           className="h-12"
                         />
@@ -504,8 +433,6 @@
                           type="email"
                           name="email"
                           placeholder="Seu melhor e-mail"
-                          value={formData.email}
-                          onChange={handleInputChange}
                           required
                           className="h-12"
                         />
@@ -513,8 +440,6 @@
                           type="text"
                           name="empresa"
                           placeholder="Nome da empresa"
-                          value={formData.empresa}
-                          onChange={handleInputChange}
                           required
                           className="h-12"
                         />
@@ -522,8 +447,6 @@
                           type="text"
                           name="cargo"
                           placeholder="Seu cargo"
-                          value={formData.cargo}
-                          onChange={handleInputChange}
                           required
                           className="h-12"
                         />
@@ -531,8 +454,6 @@
                           type="tel"
                           name="telefone"
                           placeholder="Telefone (opcional)"
-                          value={formData.telefone}
-                          onChange={handleInputChange}
                           className="h-12 md:col-span-2"
                         />
                         <Button type="submit" className="md:col-span-2 py-4 text-lg">
@@ -614,7 +535,7 @@
                       <div className="flex items-start space-x-3">
                         <CheckCircle className="w-5 h-5 text-green-600 mt-1" />
                         <div>
-                          <strong>Carlos Honorato:</strong> Ex-PRF e Exército, Psicólogo Integrativo com mais de 7.000 atendimentos, 
+                          <strong>Carlos Honorato:</strong> Ex-PRF e Exército, Psicanalista com mais de 9.000 atendimentos, 
                           Faixa Preta 4º grau em Jiu-Jitsu
                         </div>
                       </div>
@@ -622,13 +543,13 @@
                         <CheckCircle className="w-5 h-5 text-green-600 mt-1" />
                         <div>
                           <strong>Thyberê Mendes:</strong> Especialista em gestão de projetos e desenvolvimento humano, 
-                          experiência em ambientes de alta performance. Faixa Preta de Jiu-Jitsu e Luta Livre
+                          experiência em ambientes de alta performance
                         </div>
                       </div>
                     </div>
                     <div className="bg-blue-50 p-6 rounded-lg">
                       <p className="text-blue-800 font-medium">
-                        "Nossa metodologia combina disciplina militar, Psicólogo Integrativo, Pós Graduado em Terapia do Esquema, Psicanalista e gestão ágil 
+                        "Nossa metodologia combina disciplina militar, expertise psicanalítica e gestão ágil 
                         para transformar a cultura organizacional e promover o bem-estar no trabalho."
                       </p>
                     </div>
@@ -680,7 +601,6 @@
                 <Button 
                   size="lg" 
                   className="px-8 py-4 text-lg"
-                  onClick={scrollToForm}
                 >
                   BAIXAR E-BOOK GRATUITO
                 </Button>
@@ -702,15 +622,15 @@
                     <div className="space-y-2 text-gray-400">
                       <div className="flex items-center">
                         <Phone className="w-4 h-4 mr-2" />
-                        (61) 98178-9911
+                        (11) 99999-9999
                       </div>
                       <div className="flex items-center">
                         <Mail className="w-4 h-4 mr-2" />
-                        blackbeltconsultoria01@gmail.com
+                        contato@blackbelt.com.br
                       </div>
                       <div className="flex items-center">
                         <MapPin className="w-4 h-4 mr-2" />
-                        Brasília/ DF
+                        Av. Paulista, 1000 - São Paulo/SP
                       </div>
                     </div>
                   </div>

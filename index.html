@@ -301,10 +301,41 @@
           });
         };
 
-        const handleSubmit = (e) => {
+        const handleSubmit = async (e) => {
           e.preventDefault();
-          alert('Obrigado! Seu e-book será enviado para o email informado.');
-          console.log('Dados do formulário:', formData);
+
+          // Insira seu endpoint do FormsPree aqui
+          const formUrl = "https://formspree.io/f/SEU_ID_DO_FORMULARIO";
+
+          try {
+            const response = await fetch(formUrl, {
+              method: 'POST',
+              body: JSON.stringify(formData),
+              headers: {
+                'Accept': 'application/json'
+              }
+            });
+
+            if (response.ok) {
+              alert('Obrigado! Seu e-book será enviado para o email informado.');
+              console.log('Dados enviados com sucesso para o FormsPree!');
+              // Limpar o formulário após o envio
+              setFormData({
+                nome: '',
+                email: '',
+                empresa: '',
+                cargo: '',
+                telefone: ''
+              });
+            } else {
+              // Tratar erros, se houver
+              const data = await response.json();
+              alert(`Ocorreu um erro: ${data.error}`);
+            }
+          } catch (error) {
+            console.error('Erro ao enviar o formulário:', error);
+            alert('Ocorreu um erro ao enviar. Por favor, tente novamente.');
+          }
         };
 
         const scrollToForm = () => {
@@ -704,4 +735,3 @@
     </script>
   </body>
 </html>
-

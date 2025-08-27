@@ -286,6 +286,34 @@
       );
 
       function App() {
+        const ebookUrl = "https://gamma.app/docs/Desvendando-a-NR-01-e-a-Lei-148312024-sa5maqonef445ny";
+        const formspreeUrl = "https://formspree.io/f/xyzdzkjy";
+
+        const handleFormSubmit = async (event) => {
+          event.preventDefault();
+
+          const form = event.target;
+          const formData = new FormData(form);
+
+          try {
+            // Envia os dados para a Formspree em segundo plano
+            await fetch(formspreeUrl, {
+              method: "POST",
+              body: formData,
+              headers: {
+                'Accept': 'application/json'
+              }
+            });
+
+            // Redireciona o usuário para o e-book
+            window.location.href = ebookUrl;
+
+          } catch (error) {
+            console.error("Erro ao enviar formulário:", error);
+            alert("Ocorreu um erro ao tentar baixar o e-book. Por favor, tente novamente.");
+          }
+        };
+
         return (
           <div className="min-h-screen bg-gradient-to-br from-blue-50 to-green-50">
             {/* Header */}
@@ -352,7 +380,7 @@
                           </CardTitle>
                         </CardHeader>
                         <CardContent>
-                          <form action="https://formspree.io/f/xyzdzkjy" method="POST" className="space-y-4">
+                          <form onSubmit={handleFormSubmit} className="space-y-4">
                             <Input
                               type="text"
                               name="nome"
@@ -421,7 +449,7 @@
                       </CardDescription>
                     </CardHeader>
                     <CardContent>
-                      <form action="https://formspree.io/f/xyzdzkjy" method="POST" className="grid md:grid-cols-2 gap-6">
+                      <form onSubmit={handleFormSubmit} className="grid md:grid-cols-2 gap-6">
                         <Input
                           type="text"
                           name="nome"
@@ -601,6 +629,7 @@
                 <Button 
                   size="lg" 
                   className="px-8 py-4 text-lg"
+                  onClick={() => window.location.href = ebookUrl}
                 >
                   BAIXAR E-BOOK GRATUITO
                 </Button>

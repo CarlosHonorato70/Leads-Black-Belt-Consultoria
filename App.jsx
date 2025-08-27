@@ -41,8 +41,8 @@ function App() {
               Black Belt Consultoria
             </div>
             <div className="hidden md:flex items-center space-x-6 text-sm text-gray-600">
-              <span className="flex items-center"><Phone className="w-4 h-4 mr-1" /> (11) 99999-9999</span>
-              <span className="flex items-center"><Mail className="w-4 h-4 mr-1" /> contato@blackbelt.com.br</span>
+              <span className="flex items-center"><Phone className="w-4 h-4 mr-1" /> (61) 98178-9911</span>
+              <span className="flex items-center"><Mail className="w-4 h-4 mr-1" /> blackbeltconsultoria01@gmail.com</span>
             </div>
           </div>
         </div>
@@ -294,7 +294,7 @@ function App() {
                 <div className="flex items-start space-x-3">
                   <CheckCircle className="w-5 h-5 text-green-600 mt-1" />
                   <div>
-                    <strong>Carlos Honorato:</strong> Ex-PRF e Exército, Psicanalista com mais de 9.000 atendimentos, 
+                    <strong>Carlos Honorato:</strong> Ex-PRF e Exército, Psicanalista com mais de 7.000 atendimentos, 
                     Faixa Preta 4º grau em Jiu-Jitsu
                   </div>
                 </div>
@@ -302,7 +302,7 @@ function App() {
                   <CheckCircle className="w-5 h-5 text-green-600 mt-1" />
                   <div>
                     <strong>Thyberê Mendes:</strong> Especialista em gestão de projetos e desenvolvimento humano, 
-                    experiência em ambientes de alta performance
+                    experiência em ambientes de alta performance. Faixa Preta de Jiu-jitsu e Luta Livre
                   </div>
                 </div>
               </div>
@@ -382,15 +382,15 @@ function App() {
               <div className="space-y-2 text-gray-400">
                 <div className="flex items-center">
                   <Phone className="w-4 h-4 mr-2" />
-                  (11) 99999-9999
+                  (61) 98178-9911
                 </div>
                 <div className="flex items-center">
                   <Mail className="w-4 h-4 mr-2" />
-                  contato@blackbelt.com.br
+                  blackbeltconsultoria01@gmail.com
                 </div>
                 <div className="flex items-center">
                   <MapPin className="w-4 h-4 mr-2" />
-                  São Paulo, SP
+                  Brasília, DF
                 </div>
               </div>
             </div>
